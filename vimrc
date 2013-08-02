@@ -36,14 +36,18 @@ inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
 
-set number " we want line numbers by default.
-set showmatch " show matching brackets.
-set mat=5 " how many tenths of a second to blink matching brackets.
-" fix the backspace problem
+" Show line numbers by default.
+set number
+" Show matching brackets.
+set showmatch
+" How many tenths of a second to blink matching brackets.
+set mat=5
+" Fix the backspace problem.
 set backspace=2
+"Highlight searches.
+set hlsearch
 
-" Trim Trailing Whitespace
-" Removes trailing spaces
+" Trim Trailing Whitespace.
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
@@ -52,6 +56,6 @@ autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
-" Cursor changes depending on mode
+" Cursor changes depending on mode.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
