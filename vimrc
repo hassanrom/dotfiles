@@ -11,7 +11,9 @@ nnoremap <F5> :set invpaste paste?<Enter>
 imap <F5> <C-O><F5>
 set pastetoggle=<F5>
 
+" Tabs
 set softtabstop=2
+set tabstop=2
 set expandtab
 
 " navigation mappings
