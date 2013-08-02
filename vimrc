@@ -3,6 +3,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" Turn on filetype plugin & indent
+filetype plugin indent on
+
 " Press F5 to go to pasting mode & F5 again to go back.
 nnoremap <F5> :set invpaste paste?<Enter>
 imap <F5> <C-O><F5>
