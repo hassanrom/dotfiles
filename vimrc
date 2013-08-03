@@ -11,9 +11,11 @@ nnoremap <F5> :set invpaste paste?<Enter>
 imap <F5> <C-O><F5>
 set pastetoggle=<F5>
 
-" Tabs
+" Tabs. See http://tedlogan.com/techblog3.html for an explanation of what
+" these means. Alternatively read ":help options".
 set softtabstop=2
 set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " navigation mappings
