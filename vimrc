@@ -46,8 +46,11 @@ set showmatch
 set mat=5
 " Fix the backspace problem.
 set backspace=2
-"Highlight searches.
+
+" Highlight searches & press space to turn off highlighting and clear any
+" message already displayed.
 set hlsearch
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Trim Trailing Whitespace.
 function! TrimWhiteSpace()
