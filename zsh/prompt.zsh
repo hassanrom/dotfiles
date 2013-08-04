@@ -232,5 +232,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Get Ctrl-R emacs equivalent behavior.
+bindkey -M vicmd "/" history-incremental-search-backward
+bindkey -M viins "^R" history-incremental-search-backward
+
 # Enable vi mode. By default, it's emacs mode.
 bindkey -v
