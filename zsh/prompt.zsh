@@ -236,5 +236,9 @@ bindkey -M vicmd v edit-command-line
 bindkey -M vicmd "/" history-incremental-search-backward
 bindkey -M viins "^R" history-incremental-search-backward
 
+# Use emacs's CTRL-A and CTRL-E when in insert mode.
+bindkey -M viins "^A" vi-insert-bol
+bindkey -M viins "^E" vi-add-eol
+
 # Enable vi mode. By default, it's emacs mode.
 bindkey -v
