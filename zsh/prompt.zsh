@@ -7,7 +7,7 @@
 # http://www.zsh.org/mla/users/2006/msg00079.html
 
 autoload -U colors && colors
-PROMPT="%{$fg[green]%}%m:%T: %~
+PROMPT="%{$fg_bold[green]%}%m:%T: %~
 $ %{$reset_color%}"
 RPROMPT=""
 
@@ -48,7 +48,7 @@ show_mode() {
         ;;
         "INSERT")
         builtin echotc LEFT $COLUMNS
-        echo -n "$fg[green]$ $reset_color"
+        echo -n "$fg_bold[green]$ $reset_color"
         CURSOR=$x
         builtin echotc LEFT $COLUMNS
         builtin echotc RIGHT $((x + 2)) # prompt

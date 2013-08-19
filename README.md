@@ -17,4 +17,8 @@ To install zsh dotfiles:
     ln -s dotfiles/zsh ~/.zsh
     ln -s dotfiles/zshrc ~/.zshrc
 
+To install dir_colors:
+
+    ln -s dotfiles/dircolors/dircolors.ansi-dark ~/.dir_colors
+
 I use iTerm2 with Solarized theme.
