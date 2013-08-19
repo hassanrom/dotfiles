@@ -33,3 +33,11 @@ setopt share_history
 alias ls='ls -AFGph --color'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+
+########################
+# Work specific
+########################
+
+if [ -e ~/workdotfiles/zshrc ]; then
+  source ~/workdotfiles/zshrc
+fi
