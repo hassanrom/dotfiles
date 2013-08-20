@@ -30,7 +30,12 @@ setopt share_history
 # Aliases
 ########################
 
-alias ls='ls -AFGph'
+if [[ $(uname -o) == "GNU/Linux" ]]; then
+  alias ls='ls -FGph --color=auto'
+elif [[ $(uname) == "Darwin" ]]; then
+  alias ls='ls -@1AFGph'
+fi
+
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
 
