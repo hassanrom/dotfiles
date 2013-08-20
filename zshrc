@@ -30,6 +30,6 @@ setopt share_history
 # Aliases
 ########################
 
-alias ls='ls -AFGph --color'
+alias ls='ls -AFGph'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
