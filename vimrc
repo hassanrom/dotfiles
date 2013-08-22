@@ -1,7 +1,11 @@
 " Pretty syntax hi-lighting.
 syntax enable
 set background=dark
-colorscheme solarized
+" Use solarized colorscheme only if we are in gui mode. Otherwise, depend on
+" the terminal for the solarized colorscheme.
+if has('gui_running')
+  colorscheme solarized
+endif
 
 " Turn on filetype plugin & indent
 filetype plugin indent on
