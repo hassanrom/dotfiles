@@ -10,6 +10,9 @@ export SAVEHIST=10000
 export EDITOR=vim
 export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 
+# So that vim in terminal mode is beautiful with solarized colorscheme.
+export TERM="xterm-256color"
+
 ########################
 # Prompt
 ########################
