@@ -56,6 +56,10 @@ set backspace=2
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" Disable beep and flash.
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 " Statusline. Copied shamelessly from
 " http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
 set statusline=%t       "tail of the filename
@@ -70,7 +74,7 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-" Trim Trailing Whitespace.
+" Trim trailing whitespace.
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
