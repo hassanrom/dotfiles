@@ -33,7 +33,7 @@ setopt share_history
 # Aliases
 ########################
 
-if [[ $(uname -o) == "GNU/Linux" ]]; then
+if [[ $(uname) == "GNU/Linux" ]]; then
   alias ls='ls -FGph --color=auto'
 elif [[ $(uname) == "Darwin" ]]; then
   alias ls='ls -@1AFGph'
