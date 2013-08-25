@@ -8,6 +8,7 @@ fi
 function backup_if_exist() {
   local f="$1"
   if [[ -e "$f" ]]; then
+    rm "$f.backup"
     mv "$f" "$f.backup"
   fi
 }
