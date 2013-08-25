@@ -1,24 +1,14 @@
 dotfiles
 ========
 
-My dotfiles for applications I use such as vim, zsh, iTerm2.
+My dotfiles for applications I use such as vim, zsh, iTerm2 on OSX and Konsole
+on Linux.
 
-To install, first grab the files:
+To install:
 
-    git clone https://github.com/hassanrom/dotfiles.git
+    git clone https://github.com/hassanrom/dotfiles.git && dotfiles/install.sh
 
-To install vim dotfiles:
+On Mac, I use GNU's ls instead of the BSD's ls to get consistent dir colors
+as my Linux environment. To install GNU's ls using homebrew:
 
-    ln -s dotfiles/vimrc ~/.vimrc
-    ln -s dotfiles/vim ~/.vim
-
-To install zsh dotfiles:
-
-    ln -s dotfiles/zsh ~/.zsh
-    ln -s dotfiles/zshrc ~/.zshrc
-
-To install dir_colors:
-
-    ln -s dotfiles/dircolors/dircolors.ansi-dark ~/.dir_colors
-
-I use iTerm2 with Solarized theme.
+    brew install coreutils
