@@ -34,9 +34,11 @@ setopt share_history
 ########################
 
 if [[ $(uname) == "GNU/Linux" ]]; then
+  eval `dircolors ~/.dir_colors`
   alias ls='ls -FGph --color=auto'
 elif [[ $(uname) == "Darwin" ]]; then
-  alias ls='ls -@1AFGph'
+  eval `gdircolors ~/.dir_colors`
+  alias ls='gls -FGph --color=auto'
 fi
 
 alias vimrc='$EDITOR ~/.vimrc'
