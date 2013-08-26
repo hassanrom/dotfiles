@@ -7,6 +7,9 @@
 # Change your keymap:
 xmodmap "/usr/local/google/home/hassanrom/.Xmodmap"
 
+# Sets plain background.
+fbsetroot -solid grey15
+
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
