@@ -100,7 +100,7 @@ session.numLayers:	13
 session.imageDither:	True
 session.styleOverlay:	~/.fluxbox/overlay
 session.colorsPerChannel:	4
-session.styleFile:	/usr/share/fluxbox/styles/zimek_darkblue
+session.styleFile:	/usr/share/fluxbox/styles/BlueNight
 session.opaqueMove:	False
 session.useMod1:	true
 session.forcePseudoTransparency:	false
