@@ -24,3 +24,8 @@ backup_if_exist ~/.vim && ln -s dotfiles/vim ~/.vim
 # Install dir_colors.
 backup_if_exist ~/.dir_colors && \
   ln -s dotfiles/dircolors/dircolors.ansi-dark ~/.dir_colors
+
+# Linux specific environment.
+if [[ $(uname) == *Linux* ]]; then
+  backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
+fi

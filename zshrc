@@ -33,10 +33,10 @@ setopt share_history
 # Aliases
 ########################
 
-if [[ $(uname) == "GNU/Linux" ]]; then
+if [[ $(uname) == *Linux* ]]; then
   eval `dircolors ~/.dir_colors`
   alias ls='ls -FGph --color=auto'
-elif [[ $(uname) == "Darwin" ]]; then
+elif [[ $(uname) == *Darwin* ]]; then
   eval `gdircolors ~/.dir_colors`
   alias ls='gls -FGph --color=auto'
 fi
