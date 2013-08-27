@@ -9,6 +9,8 @@ LocalTabTitleFormat=%D : %n
 Name=Shell
 Parent=FALLBACK/
 RemoteTabTitleFormat=(%u) %H
+ShowNewAndCloseTabButtons=false
+TabBarMode=0
 
 [Terminal Features]
 BidiRenderingEnabled=true
