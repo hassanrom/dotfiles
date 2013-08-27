@@ -27,7 +27,15 @@ backup_if_exist ~/.dir_colors && \
 
 # Linux specific environment.
 if [[ $(uname) == *Linux* ]]; then
+  # Fluxbox
   backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
+
+  # Fonts
   backup_if_exist ~/.fonts && ln -s dotfiles/fonts ~/.fonts
   fc-cache -fv
+
+  # Konsole
+  backup_if_exist ~/.kde/share/apps/konsole && \
+    mkdir -p ~/.kde/share/apps &&
+    ln -s dotfiles/konsole ~/.kde/share/apps/konsole
 fi
