@@ -28,4 +28,6 @@ backup_if_exist ~/.dir_colors && \
 # Linux specific environment.
 if [[ $(uname) == *Linux* ]]; then
   backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
+  backup_if_exist ~/.fonts && ln -s dotfiles/fonts ~/.fonts
+  fc-cache -fv
 fi
