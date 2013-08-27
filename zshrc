@@ -5,7 +5,8 @@
 ##############################################################
 
 if [ "$PS1" != "" -a "${STARTED_TMUX:-x}" = x -a "${SSH_TTY:-x}" != x ]; then
-  export STARTED_TMUX=1;
+  export STARTED_TMUX=1
+  sleep 1
   ((tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote)) && exit 0
   echo "kmux failed to start"
 fi
