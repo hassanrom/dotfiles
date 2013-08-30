@@ -25,6 +25,9 @@ backup_if_exist ~/.vim && ln -s dotfiles/vim ~/.vim
 backup_if_exist ~/.dir_colors && \
   ln -s dotfiles/dircolors/dircolors.ansi-dark ~/.dir_colors
 
+# Install tmux configuration.
+backup_if_exist ~/.tmux.conf && ln -s dotfiles/tmux.conf ~/.tmux.conf
+
 # Linux specific environment.
 if [[ $(uname) == *Linux* ]]; then
   # Fluxbox
