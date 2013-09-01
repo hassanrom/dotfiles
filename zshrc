@@ -30,6 +30,9 @@ export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 # So that vim in terminal mode is beautiful with solarized colorscheme.
 export TERM="xterm-256color"
 
+# Prefer locally installed binaries.
+export PATH=/usr/local/bin:$PATH
+
 ##############################################################
 # tmux management
 ##############################################################
