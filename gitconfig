@@ -3,3 +3,9 @@
 	email = hassanrom@gmail.com
 [core]
 	excludesfile = ~/.gitignore
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
