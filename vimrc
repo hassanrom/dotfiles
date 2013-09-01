@@ -60,6 +60,12 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+" Mouse support within tmux.
+if has("mouse")
+  set mouse=a
+  set mousehide
+endif
+
 " Statusline. Copied shamelessly from
 " http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
 set statusline=%t       "tail of the filename
