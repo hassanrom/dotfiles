@@ -28,7 +28,7 @@ export EDITOR=vim
 export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 
 # So that vim in terminal mode is beautiful with solarized colorscheme.
-export TERM="xterm-256color"
+export TERM="screen-256color"
 
 # Prefer locally installed binaries.
 export PATH=/usr/local/bin:$PATH
@@ -73,6 +73,7 @@ fi
 
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+alias tmux='tmux -2'
 
 ##############################################################
 # Work specific

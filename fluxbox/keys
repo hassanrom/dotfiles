@@ -54,7 +54,7 @@ Mod1 h		:PrevWorkspace
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! execute commands         !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-Control Mod1 a	:ExecCommand konsole
+Control Mod1 a	:ExecCommand konsole -e 'tmux -2 new'
 Control Mod1 r  :ExecCommand fbrun
 Control Mod1 l  :ExecCommand /usr/bin/gnome-screensaver-command -l
 Control Mod1 b  :ExecCommand google-chrome
