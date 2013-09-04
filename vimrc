@@ -65,8 +65,14 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " Mouse support within tmux.
 if has("mouse")
-  set mouse=a
+  " Enable mouse mode except in insert mode. Clicking in insert mode gives us
+  " garbage!
+  set mouse=nvch
   set mousehide
+  if &term =~ '^screen'
+    "tmux knows the extended mouse mode
+    set ttymouse=xterm2
+  endif
 endif
 
 " Statusline. Copied shamelessly from
