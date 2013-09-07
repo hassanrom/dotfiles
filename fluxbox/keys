@@ -67,7 +67,4 @@ Mod1 t	:MaximizeVertical
 Mod1 g  :MaximizeHorizontal
 Mod1 r	:ResizeHorizontal 1
 Mod1 y 	:ResizeVertical 1
-
-
-
-
+Mod1 f  :Fullscreen
