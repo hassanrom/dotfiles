@@ -1,6 +1,9 @@
 " Pretty syntax hi-lighting.
 syntax enable
+" force vim to use 256 colors.
+set t_Co=256
 set background=dark
+" solarized settings.
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
@@ -65,8 +68,14 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " Mouse support within tmux.
 if has("mouse")
-  set mouse=a
+  " Enable mouse mode except in insert mode. Clicking in insert mode gives us
+  " garbage!
+  set mouse=nvch
   set mousehide
+  if &term =~ '^screen'
+    "tmux knows the extended mouse mode
+    set ttymouse=xterm2
+  endif
 endif
 
 " Statusline. Copied shamelessly from

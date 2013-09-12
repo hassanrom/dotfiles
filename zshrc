@@ -28,7 +28,10 @@ export EDITOR=vim
 export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 
 # So that vim in terminal mode is beautiful with solarized colorscheme.
-export TERM="xterm-256color"
+export TERM="screen-256color"
+
+# Prefer locally installed binaries.
+export PATH=/usr/local/bin:$PATH
 
 ##############################################################
 # tmux management
@@ -55,12 +58,12 @@ setopt share_history
 
 if [ "$OS" = "Linux" ]; then
   eval `dircolors ~/.dir_colors`
-  alias ls='ls -FGph --color=auto'
+  alias ls='ls -Fph --color=auto'
 elif [ "$OS" = "OSX" ]; then
   which gdircolors &>/dev/null
   if [[ $? -eq 0 ]]; then
     eval `gdircolors ~/.dir_colors`
-    alias ls='gls -FGph --color=auto'
+    alias ls='gls -Fph --color=auto'
   else
     echo "gdircolors not found in path. " \
       "Probably not installed? Try installing with homebrew:" \
@@ -70,6 +73,7 @@ fi
 
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+alias tmux='tmux -2'
 
 ##############################################################
 # Work specific

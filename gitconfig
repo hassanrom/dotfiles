@@ -1,3 +1,5 @@
+[alias]
+  d = diff
 [user]
 	name = Hassan Rom
 	email = hassanrom@gmail.com
@@ -9,3 +11,5 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[push]
+	default = simple

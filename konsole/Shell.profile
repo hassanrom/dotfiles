@@ -4,6 +4,7 @@ ColorScheme=Solarized
 Font=Inconsolata XL,10,-1,5,50,0,0,0,0,0
 
 [General]
+Environment=TERM=screen-256color
 Icon=utilities-terminal
 LocalTabTitleFormat=%D : %n
 Name=Shell
