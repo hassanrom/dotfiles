@@ -7,8 +7,9 @@
 # http://www.zsh.org/mla/users/2006/msg00079.html
 
 autoload -U colors && colors
-PROMPT="%{$fg_bold[green]%}%m:%T: %~
-$ %{$reset_color%}"
+
+PROMPT="%{$fg_bold[green]%}[%T] %n@%m - %~
+%(!.#.$) %{$reset_color%}"
 RPROMPT=""
 
 redisplay() {
