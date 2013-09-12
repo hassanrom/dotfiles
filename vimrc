@@ -37,10 +37,13 @@ inoremap <Esc> <NOP>
 inoremap kj <Esc>
 
 " Arrow keys no more.
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
+noremap <Left>  <NOP>
+noremap <Right> <NOP>
+noremap <Up>    <NOP>
+noremap <Down>  <NOP>
+
+" Disable shift-v so that I just use v instead.
+nnoremap <S-v>  <NOP>
 
 " Show line numbers by default.
 set number
@@ -92,6 +95,9 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 " Cursor changes depending on mode.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Map leader key to , instead of the default \
+let mapleader = ","
 
 " Work specific configuration
 if filereadable(glob("~/workdotfiles/vimrc"))
