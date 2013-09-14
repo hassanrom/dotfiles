@@ -1,5 +1,5 @@
 [alias]
-  d = diff
+	d = difftool
 [user]
 	name = Hassan Rom
 	email = hassanrom@gmail.com

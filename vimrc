@@ -13,6 +13,9 @@ colorscheme solarized
 " Turn on filetype plugin & indent
 filetype plugin indent on
 
+" Map leader key to , instead of the default \
+let mapleader = ","
+
 " Press F5 to go to pasting mode & F5 again to go back.
 nnoremap <F5> :set invpaste paste?<Enter>
 inoremap <F5> <C-O><F5>
@@ -47,6 +50,10 @@ noremap <Down>  <NOP>
 
 " Disable shift-v so that I just use v instead.
 nnoremap <S-v>  <NOP>
+
+" Shortcuts to edit vimrc & source them
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Show line numbers by default.
 set number
@@ -109,9 +116,6 @@ endfunction
 " Cursor changes depending on mode.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Map leader key to , instead of the default \
-let mapleader = ","
 
 " Work specific configuration
 if filereadable(glob("~/workdotfiles/vimrc"))
