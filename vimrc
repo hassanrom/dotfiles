@@ -48,9 +48,6 @@ noremap <Right> <NOP>
 noremap <Up>    <NOP>
 noremap <Down>  <NOP>
 
-" Disable shift-v so that I just use v instead.
-nnoremap <S-v>  <NOP>
-
 " Shortcuts to edit vimrc & source them
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>

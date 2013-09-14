@@ -1,9 +1,7 @@
 [alias]
 	d = difftool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[user]
-	name = Hassan Rom
-	email = hassanrom@gmail.com
+	s = status
 [core]
 	excludesfile = ~/.gitignore
 [diff]
@@ -13,4 +11,6 @@
 [difftool]
 	prompt = false
 [push]
-	default = simple
+  default = simple
+[include]
+  path = ~/.gitconfig_user
