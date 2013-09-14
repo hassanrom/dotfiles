@@ -15,7 +15,7 @@ filetype plugin indent on
 
 " Press F5 to go to pasting mode & F5 again to go back.
 nnoremap <F5> :set invpaste paste?<Enter>
-imap <F5> <C-O><F5>
+inoremap <F5> <C-O><F5>
 set pastetoggle=<F5>
 
 " Tabs. See http://tedlogan.com/techblog3.html for an explanation of what
@@ -94,12 +94,17 @@ set statusline+=\ %P    "percent through file
 
 " Trim trailing whitespace.
 function! TrimWhiteSpace()
-    %s/\s\+$//e
+  %s/\s\+$//e
 endfunction
 autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
+
+" Sort #include blocks.
+function! SortIncludeBlocks()
+  g/^#include.*/,/^#include.*$\n^$/ sort
+endfunction
 
 " Cursor changes depending on mode.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
