@@ -49,8 +49,13 @@ noremap <right> <nop>
 noremap <up>    <nop>
 noremap <down>  <nop>
 
-" Use X instead! Or if already at the end the sentence press x.
-inoremap <backspace> <nop>
+" Shortcuts for navigating between header, source & tests for C++.
+" TODO: Need to be able to go to source/header from test files.
+" See http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file for
+" more ways of doing this.
+noremap <leader>es :e %<.cc<cr>
+noremap <leader>eh :e %<.h<cr>
+noremap <leader>et :e %<_test.cc<cr>
 
 " Shortcuts to edit vimrc & source them
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
