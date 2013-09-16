@@ -53,8 +53,9 @@ noremap <down>  <nop>
 " TODO: Need to be able to go to source/header from test files.
 " See http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file for
 " more ways of doing this.
-noremap <leader>es :e %<.cc<cr>
-noremap <leader>eh :e %<.h<cr>
+" Also see :help filename-modifiers.
+noremap <leader>es :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
+noremap <leader>eh :e %:p:s,_test.cc$,.cc,:s,.cc$,.h,<cr>
 noremap <leader>et :e %<_test.cc<cr>
 
 " Shortcuts to edit vimrc & source them
