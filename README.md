@@ -6,7 +6,7 @@ on Linux.
 
 To install:
 
-    git clone https://github.com/hassanrom/dotfiles.git && dotfiles/install.sh
+    cd && git clone https://github.com/hassanrom/dotfiles.git && dotfiles/install.sh
 
 On Mac, I use GNU's ls instead of the BSD's ls to get consistent dir colors
 as my Linux environment. To install GNU's ls using homebrew:

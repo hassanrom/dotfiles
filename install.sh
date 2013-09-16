@@ -28,6 +28,17 @@ backup_if_exist ~/.dir_colors && \
 # Install tmux configuration.
 backup_if_exist ~/.tmux.conf && ln -s dotfiles/tmux.conf ~/.tmux.conf
 
+# Install git configuration.
+backup_if_exist ~/.gitconfig && ln -s dotfiles/gitconfig ~/.gitconfig
+if [[ ! -e ~/.gitconfig_user ]]; then
+  read -p "Edit user section of your gitconfig file?" -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    cp dotfiles/gitconfig_user ~/.gitconfig_user
+    vim ~/.gitconfig_user
+  fi
+fi
+
 # Linux specific environment when X is installed.
 if [[ $(uname) == *Linux* ]]; then
   # Fluxbox
