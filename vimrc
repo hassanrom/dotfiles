@@ -70,11 +70,6 @@ set mat=5
 " Fix the backspace problem.
 set backspace=2
 
-" Highlight searches & press space to turn off highlighting and clear any
-" message already displayed.
-set hlsearch
-nnoremap <silent> <space> :nohlsearch<bar>:echo<cr>
-
 " Disable beep and flash.
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -125,21 +120,25 @@ augroup formatting
   function! SortIncludeBlocks()
     " Create mark before we sort.
     normal mz
-    g/^#include.*/,/^#include.*$\n^$/ sort
+    " Match from beginning of #include to the line before empty newline.
+    g/^#include.*/,/^$/-1 sort
     " Go back to where we were before sorting.
     normal `z
   endfunction
-  autocmd FileWritePre    *.cc :call SortIncludeBlocks()
-  autocmd FileAppendPre   *.cc :call SortIncludeBlocks()
-  autocmd BufWritePre     *.cc :call SortIncludeBlocks()
+  " Need to escape the | operator as well as ( in vim :(
+  autocmd FileWritePre    *.\(cc\|h\) :call SortIncludeBlocks()
+  autocmd FileAppendPre   *.\(cc\|h\) :call SortIncludeBlocks()
+  autocmd BufWritePre     *.\(cc\|h\) :call SortIncludeBlocks()
 
   " Maps <localleader>c to comment current line.
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
   autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType vim nnoremap <buffer> <localleader>c I"<esc>
 
   " Abbreviations.
-  autocmd Filetype javascript iabbrev <buffer> iff if ()<left>
-  autocmd Filetype cpp iabbrev <buffer> iff if ()<left>
+  " TODO: These don't work as I intended.
+  "autocmd Filetype javascript iabbrev <buffer> iff if ()<left>
+  "autocmd Filetype cpp iabbrev <buffer> iff if ()<left>
 augroup END
 
 " Cursor changes depending on mode.
