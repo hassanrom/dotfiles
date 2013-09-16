@@ -4,10 +4,10 @@ syntax enable
 set t_Co=256
 set background=dark
 " solarized settings.
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+let g:solarized_termtrans = 1
+let g:solarized_termcolors = 256
+let g:solarized_contrast = "high"
+let g:solarized_visibility = "high"
 colorscheme solarized
 
 " Turn on filetype plugin & indent
@@ -15,10 +15,11 @@ filetype plugin indent on
 
 " Map leader key to , instead of the default \
 let mapleader = ","
+let maplocalleader = ","
 
 " Press F5 to go to pasting mode & F5 again to go back.
-nnoremap <F5> :set invpaste paste?<Enter>
-inoremap <F5> <C-O><F5>
+nnoremap <f5> :set invpaste paste?<Enter>
+inoremap <f5> <c-O><F5>
 set pastetoggle=<F5>
 
 " Tabs. See http://tedlogan.com/techblog3.html for an explanation of what
@@ -29,24 +30,27 @@ set shiftwidth=2
 set expandtab
 
 " navigation mappings
-noremap <S-j> <PageDown>
-noremap <S-k> <PageUp>
-noremap <S-l> <S-a>
-noremap <S-h> <S-i>
-nnoremap <C-l> <C-W>l
-nnoremap <C-h> <C-W>h
-nnoremap <C-k> <C-W>k
-nnoremap <C-j> <C-W>j
+noremap <s-j> <pagedown>
+noremap <s-k> <pageup>
+noremap <s-l> <s-a>
+noremap <s-h> <s-i>
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
 
 " Remap Esc to kj.
-inoremap <Esc> <NOP>
-inoremap kj <Esc>
+inoremap <esc> <nop>
+inoremap kj <esc>
 
 " Arrow keys no more.
-noremap <Left>  <NOP>
-noremap <Right> <NOP>
-noremap <Up>    <NOP>
-noremap <Down>  <NOP>
+noremap <left>  <nop>
+noremap <right> <nop>
+noremap <up>    <nop>
+noremap <down>  <nop>
+
+" Use X instead! Or if already at the end the sentence press x.
+inoremap <backspace> <nop>
 
 " Shortcuts to edit vimrc & source them
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -64,7 +68,7 @@ set backspace=2
 " Highlight searches & press space to turn off highlighting and clear any
 " message already displayed.
 set hlsearch
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <space> :nohlsearch<bar>:echo<cr>
 
 " Disable beep and flash.
 set noerrorbells visualbell t_vb=
@@ -96,19 +100,42 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-" Trim trailing whitespace.
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
-autocmd FileWritePre    * :call TrimWhiteSpace()
-autocmd FileAppendPre   * :call TrimWhiteSpace()
-autocmd FilterWritePre  * :call TrimWhiteSpace()
-autocmd BufWritePre     * :call TrimWhiteSpace()
+augroup formatting
+  " Clears all previous autocmds within this group. This is so that
+  " consecutive sourcing of the vimrc within an existing vim session doesn't
+  " create duplicate autocmds. Duplicate autocmds means that the commands are
+  " executed multiple times and hence making vim slower.
+  autocmd!
 
-" Sort #include blocks.
-function! SortIncludeBlocks()
-  g/^#include.*/,/^#include.*$\n^$/ sort
-endfunction
+  " Trim trailing whitespace.
+  function! TrimWhiteSpace()
+    %s/\s\+$//e
+  endfunction
+  autocmd FileWritePre    * :call TrimWhiteSpace()
+  autocmd FileAppendPre   * :call TrimWhiteSpace()
+  autocmd FilterWritePre  * :call TrimWhiteSpace()
+  autocmd BufWritePre     * :call TrimWhiteSpace()
+
+  " Sort #include blocks.
+  function! SortIncludeBlocks()
+    " Create mark before we sort.
+    normal mz
+    g/^#include.*/,/^#include.*$\n^$/ sort
+    " Go back to where we were before sorting.
+    normal `z
+  endfunction
+  autocmd FileWritePre    *.cc :call SortIncludeBlocks()
+  autocmd FileAppendPre   *.cc :call SortIncludeBlocks()
+  autocmd BufWritePre     *.cc :call SortIncludeBlocks()
+
+  " Maps <localleader>c to comment current line.
+  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
+
+  " Abbreviations.
+  autocmd Filetype javascript iabbrev <buffer> iff if ()<left>
+  autocmd Filetype cpp iabbrev <buffer> iff if ()<left>
+augroup END
 
 " Cursor changes depending on mode.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
