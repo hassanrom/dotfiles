@@ -29,6 +29,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" No swap & backup files. I save plenty.
+set nobackup
+set noswapfile
+
 " navigation mappings
 noremap <s-j> <pagedown>
 noremap <s-k> <pageup>
@@ -61,6 +65,7 @@ noremap <leader>et :e %<_test.cc<cr>
 " Shortcuts to edit vimrc & source them
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ew :vsplit ~/workdotfiles/vimrc<cr>
 
 " Show line numbers by default.
 set number
@@ -119,12 +124,12 @@ augroup formatting
 
   " Sort #include blocks.
   function! SortIncludeBlocks()
-    " Create mark before we sort.
-    normal mz
+    " Save cursor & window view before we sort.
+    let l:winview = winsaveview()
     " Match from beginning of #include to the line before empty newline.
     g/^#include.*/,/^$/-1 sort
-    " Go back to where we were before sorting.
-    normal `z
+    " Restore cursor position & window view
+    call winrestview(l:winview)
   endfunction
   " Need to escape the | operator as well as ( in vim :(
   autocmd FileWritePre    *.\(cc\|h\) :call SortIncludeBlocks()
@@ -145,6 +150,10 @@ augroup END
 " Cursor changes depending on mode.
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" A trick by Steve Losh to use w!! to sudo & write a file with vim
+" http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
+cmap w!! w !sudo tee % >/dev/null
 
 " Work specific configuration
 if filereadable(glob("~/workdotfiles/vimrc"))
