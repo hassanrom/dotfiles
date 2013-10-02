@@ -15,6 +15,7 @@ function backup_if_exist() {
 
 # Install zsh configuration.
 backup_if_exist ~/.zshrc && ln -s dotfiles/zshrc ~/.zshrc
+backup_if_exist ~/.zshenv && ln -s dotfiles/zshenv ~/.zshenv
 backup_if_exist ~/.zsh && ln -s dotfiles/zsh ~/.zsh
 
 # Install vim configuration.
