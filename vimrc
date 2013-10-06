@@ -49,7 +49,6 @@ if exists('$TMUX')
     silent! execute "wincmd " . a:wincmd
     if previous_winnr == winnr()
       call system("tmux select-pane -" . a:tmuxdir)
-      redraw!
     endif
   endfunction
 
