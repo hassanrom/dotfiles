@@ -58,14 +58,17 @@ noremap <down>  <nop>
 " See http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file for
 " more ways of doing this.
 " Also see :help filename-modifiers.
-noremap <leader>es :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
-noremap <leader>eh :e %:p:s,_test.cc$,.cc,:s,.cc$,.h,<cr>
-noremap <leader>et :e %<_test.cc<cr>
+nnoremap <leader>es :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
+nnoremap <leader>eh :e %:p:s,_test.cc$,.cc,:s,.cc$,.h,<cr>
+nnoremap <leader>et :e %:p:s,_test.cc$,.cc,:s,.cc$,_test.cc,<cr>
 
 " Shortcuts to edit vimrc & source them
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ew :vsplit ~/workdotfiles/vimrc<cr>
+
+" Shortcuts to list files in the current directory.
+nnoremap <leader>ls :Ex<cr>
 
 " Show line numbers by default.
 set number
