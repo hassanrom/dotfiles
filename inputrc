@@ -1,3 +1,5 @@
+$include /etc/inputrc
+
 set editing-mode vi
 set keymap vi
 
@@ -7,6 +9,8 @@ $if mode=vi
   "G": end-of-history
   set keymap vi-insert
   "kj": vi-movement-mode
+  "\C-a": beginning-of-line
+  "\C-e": end-of-line
   "\C-w": backward-kill-word
-  "\C-r": history-search-backward
+  "\C-r": reverse-search-history
 $endif
