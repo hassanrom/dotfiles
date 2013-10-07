@@ -38,10 +38,34 @@ noremap <s-j> <pagedown>
 noremap <s-k> <pageup>
 noremap <s-l> <s-a>
 noremap <s-h> <s-i>
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
-nnoremap <c-k> <c-w>k
-nnoremap <c-j> <c-w>j
+
+" Seamlessly navigate between vim & tmux panes.
+" Credit goes to https://github.com/aaronjensen & this post
+" http://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits.html for
+" this wonderful tip.
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+    endif
+  endfunction
+
+  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  nnoremap <c-l> <c-w>l
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-j> <c-w>j
+endif
 
 " Remap Esc to kj.
 inoremap <esc> <nop>
