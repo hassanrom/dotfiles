@@ -84,7 +84,7 @@ noremap <down>  <nop>
 " Also see :help filename-modifiers.
 nnoremap <leader>es :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
 nnoremap <leader>eh :e %:p:s,_test.cc$,.cc,:s,.cc$,.h,<cr>
-nnoremap <leader>et :e %:p:s,_test.cc$,.cc,:s,.cc$,_test.cc,<cr>
+nnoremap <leader>et :e %:p:s,_test.cc$,.cc,:s,.h$,.cc,:s,.cc$,_test.cc,<cr>
 
 " Shortcuts to edit vimrc & source them
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
