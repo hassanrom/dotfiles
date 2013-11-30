@@ -172,6 +172,9 @@ augroup formatting
   " TODO: These don't work as I intended.
   "autocmd Filetype javascript iabbrev <buffer> iff if ()<left>
   "autocmd Filetype cpp iabbrev <buffer> iff if ()<left>
+
+  " Sometimes the screen screws up after saving.
+  au BufWritePost * :redraw!
 augroup END
 
 " Cursor changes depending on mode.
