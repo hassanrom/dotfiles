@@ -1,1 +1,5 @@
+# Custom key mappings.
 xmodmap ~/.Xmodmap
+
+# Disable touchpad.
+xinput set-prop 11 "Device Enabled" 0
