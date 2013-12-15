@@ -7,6 +7,8 @@
 * Figure out how to use different i3 modkeys depending on whether I'm on laptop
   or desktop.
 * Figure out how to auto-suspend & hibernate after being idle.
+* Make volume keys work.
+* Get internet radio from shell to work.
 
 ## tmux
 
