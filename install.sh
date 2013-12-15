@@ -45,11 +45,20 @@ fi
 
 # Linux specific environment when X is installed.
 if [[ $(uname) == *Linux* ]]; then
-  # Fluxbox
-  if [[ ! -z $(command -v fluxbox) ]]; then
-    backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
+  # X configurations.
+  backup_if_exist ~/.xinitrc && ln -s dotfiles/xinitrc
+  backup_if_exist ~/.Xmodmap && ln -s dotfiles/Xmodmap
+  backup_if_exist ~/.xsessionrc && ln -s dotfiles/xsessionrc
+
+  # i3
+  if [[ ! -z $(command -v i3) ]]; then
+    backup_if_exist ~/.i3 && ln -s dotfiles/i3 ~/.i3
+
+    # Link i3 scripts needed referenced in i3's config.
+    mkdir -p $HOME/bin
+    ln -s dotfiles/i3/i3exit $HOME/bin/i3exit
   else
-    echo "Skipped installing fluxbox dotfiles."
+    echo "Skipped installing i3 dotfiles."
   fi
 
   # Fonts
@@ -58,6 +67,20 @@ if [[ $(uname) == *Linux* ]]; then
     fc-cache -fv
   else
     echo "Skipped installing fonts."
+  fi
+
+  # Gnome apps such as gnome-terminal
+  if [[ ! -z $(command -z gnome-terminal) ]]; then
+    backup_if_exist ~/.gconf && ln -s dotfiles/gconf ~/.gconf
+  else
+    echo "Skipped installing gnome apps."
+  fi
+
+  # Fluxbox
+  if [[ ! -z $(command -v fluxbox) ]]; then
+    backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
+  else
+    echo "Skipped installing fluxbox dotfiles."
   fi
 
   # Konsole

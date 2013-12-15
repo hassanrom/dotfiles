@@ -1,3 +1,4 @@
+# Maps Caps lock key to be control.
 keycode 66 = Control_L
 clear Lock
 add Control = Control_L

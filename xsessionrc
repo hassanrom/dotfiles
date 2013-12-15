@@ -1,0 +1,2 @@
+# So that i3 can have access to custom i3 scripts under $HOME/bin.
+export PATH=$PATH:$HOME/bin
