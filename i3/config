@@ -173,3 +173,9 @@ bindsym $mod+End mode "$mode_system"
 
 # for debugging PATH environment variable.
 bindsym $mod+Shift+i exec --no-startup-id echo $PATH >> .i3_debug
+
+# i3mark
+bindsym $mod+Shift+g exec i3mark
+
+# i3goto
+bindsym $mod+g exec i3goto

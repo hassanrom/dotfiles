@@ -57,6 +57,8 @@ if [[ $(uname) == *Linux* ]]; then
     # Link i3 scripts needed referenced in i3's config.
     mkdir -p $HOME/bin
     ln -s dotfiles/i3/i3exit $HOME/bin/i3exit
+    ln -s dotfiles/i3/i3mark $HOME/bin/i3mark
+    ln -s dotfiles/i3/i3goto $HOME/bin/i3goto
   else
     echo "Skipped installing i3 dotfiles."
   fi
