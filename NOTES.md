@@ -18,3 +18,39 @@ $ xinput list
 
 $ xinput set-prop 11 "Device Enabled" 0
 ```
+
+To compile your own i3 on ubuntu precise
+----------------------------------------
+
+1. Download latest i3 tarball from i3's website.
+```
+wget http://i3wm.org/downloads/i3-4.6.tar.bz2
+```
+
+2. Install dependencies.
+```
+sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-xinerama0-dev libpango1.0-dev libxcursor-dev
+```
+
+3. Compile & install.
+```
+$ make
+$ sudo make install
+```
+
+To enable authentication via fingerprint
+----------------------------------------
+
+1. Install the packages
+```
+$ sudo add-apt-repository ppa:fingerprint/fingerprint-gui
+$ sudo apt-get update
+$ sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
+```
+
+2. Setup.
+```
+$ fingerprint-gui
+```
+
+For more info [see](http://fcns.eu/2012/04/29/fingerprint-reader/).
