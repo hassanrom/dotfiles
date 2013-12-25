@@ -1,4 +1,11 @@
 #!/bin/sh
+#
+# Assumes pm-hibernate, pm-suspend, reboot, poweroff can be executed with
+# NOPASSWD.
+# For example, add the following to visudo to enable executing pm-hibernate
+# without password:
+#
+#     username ALL=(ALL)NOPASSWD:/usr/sbin/pm-hibernate.
 
 case "$1" in
   lock)
