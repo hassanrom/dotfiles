@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Change default shell to zsh.
-if [[ $SHELL != "/bin/zsh" ]]; then
-  chsh -s /bin/zsh
+if [[ ! $SHELL =~ "zsh" ]]; then
+  chsh -s `which zsh`
 fi
 
 function backup_if_exist() {
   local f="$1"
   if [[ -e "$f" ]]; then
-    rm -f "$f.backup"
+    rm -f -r "$f.backup"
     mv "$f" "$f.backup"
   fi
 }
@@ -46,19 +46,19 @@ fi
 # Linux specific environment when X is installed.
 if [[ $(uname) == *Linux* ]]; then
   # X configurations.
-  backup_if_exist ~/.xinitrc && ln -s dotfiles/xinitrc
-  backup_if_exist ~/.Xmodmap && ln -s dotfiles/Xmodmap
-  backup_if_exist ~/.xsessionrc && ln -s dotfiles/xsessionrc
+  backup_if_exist ~/.xinitrc && ln -s dotfiles/xinitrc ~/.xinitrc
+  backup_if_exist ~/.Xmodmap && ln -s dotfiles/Xmodmap ~/.Xmodmap
+  backup_if_exist ~/.xsessionrc && ln -s dotfiles/xsessionrc ~/.xsessionrc
 
   # i3
   if [[ ! -z $(command -v i3) ]]; then
     backup_if_exist ~/.i3 && ln -s dotfiles/i3 ~/.i3
 
     # Link i3 scripts needed referenced in i3's config.
-    mkdir -p $HOME/bin
-    ln -s dotfiles/i3/i3exit $HOME/bin/i3exit
-    ln -s dotfiles/i3/i3mark $HOME/bin/i3mark
-    ln -s dotfiles/i3/i3goto $HOME/bin/i3goto
+    mkdir -p ~/bin
+    rm -f ~/bin/i3exit && ln -s ~/dotfiles/i3/i3exit ~/bin/i3exit
+    rm -f ~/bin/i3mark && ln -s ~/dotfiles/i3/i3mark ~/bin/i3mark
+    rm -f ~/bin/i3goto && ln -s ~/dotfiles/i3/i3goto ~/bin/i3goto
   else
     echo "Skipped installing i3 dotfiles."
   fi
@@ -72,7 +72,7 @@ if [[ $(uname) == *Linux* ]]; then
   fi
 
   # Gnome apps such as gnome-terminal
-  if [[ ! -z $(command -z gnome-terminal) ]]; then
+  if [[ ! -z $(command -v gnome-terminal) ]]; then
     backup_if_exist ~/.gconf && ln -s dotfiles/gconf ~/.gconf
   else
     echo "Skipped installing gnome apps."
@@ -83,14 +83,5 @@ if [[ $(uname) == *Linux* ]]; then
     backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
   else
     echo "Skipped installing fluxbox dotfiles."
-  fi
-
-  # Konsole
-  if [[ ! -z $(command -v konsole) ]]; then
-    backup_if_exist ~/.kde/share/apps/konsole && \
-      mkdir -p ~/.kde/share/apps &&
-      ln -s dotfiles/konsole ~/.kde/share/apps/konsole
-  else
-    echo "Skipped installing konsole dotfiles."
   fi
 fi
