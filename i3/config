@@ -12,7 +12,31 @@
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango: Ubuntu Mono 10
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  status_command i3status
+
+  colors {
+    background #0e0e0e
+    statusline #839496
+
+    focused_workspace  #b58900 #111111
+    inactive_workspace #586e75 #111111
+    urgent_workspace   #839496 #dc322f
+    active_workspace   #839496 #111111
+  }
+}
+
+# Colors
+# class                 border  backgr. text
+client.focused          #cb4b16 #cb4b16 #fdf6e3
+client.focused_inactive #657b83 #657b83 #fdf6e3
+client.unfocused        #586e75 #586e75 #eee8d5
+client.urgent           #dc322f #dc322f #fdf6e3
+client.background       #000000
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -80,8 +104,8 @@ bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+8 workspace 8:email
+bindsym $mod+9 workspace 9:monitor
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
@@ -92,8 +116,8 @@ bindsym $mod+Shift+dollar move workspace 4
 bindsym $mod+Shift+percent move workspace 5
 bindsym $mod+Shift+asciicircum move workspace 6
 bindsym $mod+Shift+ampersand move workspace 7
-bindsym $mod+Shift+asterisk move workspace 8
-bindsym $mod+Shift+parenleft move workspace 9
+bindsym $mod+Shift+asterisk move workspace 8:email
+bindsym $mod+Shift+parenleft move workspace 9:monitor
 bindsym $mod+Shift+parenright move workspace 10
 
 # rename workspace
@@ -101,75 +125,67 @@ bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-    # They resize the border in the direction you pressed, e.g.
-    # when pressing left, the window is resized so that it has
-    # more space on its left
+  # They resize the border in the direction you pressed, e.g.
+  # when pressing left, the window is resized so that it has
+  # more space on its left
 
-    bindsym j               resize shrink left 10 px or 10 ppt
-    bindsym Shift+j         resize grow   left 10 px or 10 ppt
+  bindsym j               resize shrink left 10 px or 10 ppt
+  bindsym Shift+j         resize grow   left 10 px or 10 ppt
 
-    bindsym k               resize shrink down 10 px or 10 ppt
-    bindsym Shift+k         resize grow   down 10 px or 10 ppt
+  bindsym k               resize shrink down 10 px or 10 ppt
+  bindsym Shift+k         resize grow   down 10 px or 10 ppt
 
-    bindsym l               resize shrink up 10 px or 10 ppt
-    bindsym Shift+l         resize grow   up 10 px or 10 ppt
+  bindsym l               resize shrink up 10 px or 10 ppt
+  bindsym Shift+l         resize grow   up 10 px or 10 ppt
 
-    bindsym semicolon       resize shrink right 10 px or 10 ppt
-    bindsym Shift+semicolon resize grow   right 10 px or 10 ppt
+  bindsym semicolon       resize shrink right 10 px or 10 ppt
+  bindsym Shift+semicolon resize grow   right 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
-    bindsym Left        resize shrink left 10 px or 10 ppt
-    bindsym Shift+Left  resize grow   left 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Left        resize shrink left 10 px or 10 ppt
+  bindsym Shift+Left  resize grow   left 10 px or 10 ppt
 
-    bindsym Down        resize shrink down 10 px or 10 ppt
-    bindsym Shift+Down  resize grow   down 10 px or 10 ppt
+  bindsym Down        resize shrink down 10 px or 10 ppt
+  bindsym Shift+Down  resize grow   down 10 px or 10 ppt
 
-    bindsym Up          resize shrink up 10 px or 10 ppt
-    bindsym Shift+Up    resize grow   up 10 px or 10 ppt
+  bindsym Up          resize shrink up 10 px or 10 ppt
+  bindsym Shift+Up    resize grow   up 10 px or 10 ppt
 
-    bindsym Right       resize shrink right 10 px or 10 ppt
-    bindsym Shift+Right resize grow   right 10 px or 10 ppt
+  bindsym Right       resize shrink right 10 px or 10 ppt
+  bindsym Shift+Right resize grow   right 10 px or 10 ppt
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
-
 # bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    status_command i3status
-}
-
-# start network manager applet on start-up.
-exec --no-startup-id nm-applet
 
 # i3exit
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym e exec --no-startup-id i3exit logout, mode "default"
+  bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym r exec --no-startup-id i3exit reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
-bindsym $mod+End mode "$mode_system"
+bindsym $mod+Control+l mode "$mode_system"
 
 # for debugging PATH environment variable.
 bindsym $mod+Shift+i exec --no-startup-id echo $PATH >> .i3_debug
@@ -179,3 +195,21 @@ bindsym $mod+Shift+g exec i3mark
 
 # i3goto
 bindsym $mod+g exec i3goto
+
+# ovpn
+bindsym $mod+o exec i3-sensible-terminal --name 'ovpn' -e 'ovpn'
+for_window [instance="^ovpn"] move scratchpad
+bindsym $mod+Shift+O [instance="^ovpn"] scratchpad show
+
+# start network manager applet on start-up.
+exec --no-startup-id nm-applet
+
+# This guy handles stuff like suspend on lid close, volume buttons, and more.
+# TODO: Figure out if I need everything this guy does.
+exec /usr/bin/gnome-settings-daemon
+
+workspace 9:monitor output LVDS1
+exec --no-startup-id i3-msg "workspace 9:monitor; exec i3-sensible-terminal -e 'htop'; exec i3-sensible-terminal -e 'netstat -t -u -c'"
+
+workspace 8:email output LVDS1
+exec --no-startup-id i3-msg "workspace 8:email; exec i3-sensible-terminal -e 'mutt'; exec i3-sensible-terminal -e 'irssi'"
