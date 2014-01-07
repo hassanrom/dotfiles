@@ -55,10 +55,10 @@ if [[ $(uname) == *Linux* ]]; then
     backup_if_exist ~/.i3 && ln -s dotfiles/i3 ~/.i3
 
     # Link i3 scripts needed referenced in i3's config.
-    mkdir -p $HOME/bin
-    rm $HOME/bin/i3exit && ln -s dotfiles/i3/i3exit $HOME/bin/i3exit
-    rm $HOME/bin/i3mark && ln -s dotfiles/i3/i3mark $HOME/bin/i3mark
-    rm $HOME/bin/i3goto && ln -s dotfiles/i3/i3goto $HOME/bin/i3goto
+    mkdir -p ~/bin
+    rm -f ~/bin/i3exit && ln -s ~/dotfiles/i3/i3exit ~/bin/i3exit
+    rm -f ~/bin/i3mark && ln -s ~/dotfiles/i3/i3mark ~/bin/i3mark
+    rm -f ~/bin/i3goto && ln -s ~/dotfiles/i3/i3goto ~/bin/i3goto
   else
     echo "Skipped installing i3 dotfiles."
   fi
