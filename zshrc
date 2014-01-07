@@ -75,6 +75,7 @@ alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
 alias i3config='$EDITOR ~/.i3/config && i3-msg reload'
 alias tmux='tmux -2'
+alias grep='grep --color=always'
 
 ##############################################################
 # Autocompletion
