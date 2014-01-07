@@ -1,12 +1,10 @@
 " Pretty syntax hi-lighting.
 syntax enable
 " force vim to use 256 colors.
-"set t_Co=256
 set background=dark
 
 " solarized settings.
 let g:solarized_termtrans = 1
-"let g:solarized_termcolors = 256
 let g:solarized_contrast = "high"
 let g:solarized_visibility = "high"
 colorscheme solarized
