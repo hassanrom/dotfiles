@@ -1,4 +1,4 @@
-#!/bin/bash
+/bin/bash
 
 # Change default shell to zsh.
 if [[ ! $SHELL =~ "zsh" ]]; then
@@ -42,6 +42,10 @@ if [[ ! -e ~/.gitconfig_user ]]; then
     vim ~/.gitconfig_user
   fi
 fi
+
+# Install config directory. Contains configuration for apps such as sakura &
+# htop.
+backup_if_exist ~/.config && ln -s dotfiles/config ~/.config
 
 # Linux specific environment when X is installed.
 if [[ $(uname) == *Linux* ]]; then
