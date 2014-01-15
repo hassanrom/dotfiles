@@ -63,6 +63,8 @@ if [[ $(uname) == *Linux* ]]; then
     rm -f ~/bin/i3exit && ln -s ~/dotfiles/i3/i3exit ~/bin/i3exit
     rm -f ~/bin/i3mark && ln -s ~/dotfiles/i3/i3mark ~/bin/i3mark
     rm -f ~/bin/i3goto && ln -s ~/dotfiles/i3/i3goto ~/bin/i3goto
+    rm -f ~/bin/i3-sensible-terminal && \
+      ln -s ~/dotfiles/i3/i3-sensible-terminal ~/bin/i3-sensible-terminal
   else
     echo "Skipped installing i3 dotfiles."
   fi
