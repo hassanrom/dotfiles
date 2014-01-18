@@ -38,6 +38,30 @@ $ make
 $ sudo make install
 ```
 
+To compile your own vim on ubuntu precise
+-----------------------------------------
+
+I mostly followed the instructions on
+[this](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
+page but I removed gui support & enabled lua.
+
+```
+$ sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial lua5.2 liblua5.2-0 liblua5.2-dev
+$ sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+$ hg clone https://code.google.com/p/vim/
+$ cd
+$ hg clone https://code.google.com/p/vim/
+$ cd vim
+$ /configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7-config --enable-perlinterp --enable-cscope --prefix=/usr/local --enable-luainterp
+$ make VIMRUNTIMEDIR=/usr/share/vim/vim74
+$ sudo apt-get install checkinstall
+$ sudo checkinstall
+```
+
+For some reason setting VIMRUNTIMEDIR to /usr/share/vim/vim74 while making
+doesn't work. If that doesn't work for you, you may need to set VIMRUNTIMEDIR
+environment variable to /usr/local/share/vim/vim74 in your zshrc.
+
 To enable authentication via fingerprint
 ----------------------------------------
 

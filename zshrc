@@ -33,6 +33,9 @@ export TERM="screen-256color"
 # Prefer locally installed binaries.
 export PATH=/usr/local/bin:$PATH
 
+# I compile my own vim74 and install it under /usr/local.
+export VIMRUNTIME=/usr/local/share/vim/vim74
+
 ##############################################################
 # tmux management
 ##############################################################
