@@ -184,6 +184,11 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
 cmap w!! w !sudo tee % >/dev/null
 
+" Bundle plugins.
+if filereadable(glob("~/.vim/bundle.vim"))
+  source ~/.vim/bundle.vim
+endif
+
 " Work specific configuration
 if filereadable(glob("~/workdotfiles/vimrc"))
   source ~/workdotfiles/vimrc
