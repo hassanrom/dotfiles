@@ -14,6 +14,8 @@
 * Add utility to update environment variables such as DISPLAY on all tmux
   windows, possibly following this tip
   [here](https://raim.codingfarm.de/blog/2013/01/30/tmux-update-environment/).
+* Vim's solarized theme is not working correctly when running tmux locally.
+  The fonts appear to be bold. Running tmux on ssh is fine though.
 
 ## misc
 

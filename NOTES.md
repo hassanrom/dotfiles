@@ -78,3 +78,24 @@ $ fingerprint-gui
 ```
 
 For more info [see](http://fcns.eu/2012/04/29/fingerprint-reader/).
+
+
+To compile your own sakura binary
+---------------------------------
+
+1. Download latest sakura tarball from sakura's website.
+```
+$ wget https://launchpad.net/sakura/trunk/3.1.3/+download/sakura-3.1.3.tar.bz2
+```
+
+2. Install dependencies.
+```
+$ sudo apt-get install cmake libgtk-3-dev libvte-2.90-dev
+```
+
+3. Compile & install.
+```
+$ cmake -DCMAKE_INSTALL_PREFIX=/usr/local .
+$ make
+$ sudo make install
+```
