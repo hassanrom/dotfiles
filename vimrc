@@ -173,7 +173,8 @@ augroup formatting
   " https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd
   autocmd FileType markdown nnoremap <buffer> <localleader>p :!google-chrome-stable %:p<cr>
 
-  " Enable auto formatting paragraph in markdowns.
+  " Enable auto formatting paragraph in markdowns. See :help auto-format for
+  " more info.
   " TODO: Add 'c' to formatoptions to enable auto formatting of comments
   " in source codes.
   autocmd FileType markdown setlocal formatoptions=aw2tq
