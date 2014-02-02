@@ -167,6 +167,17 @@ augroup formatting
   autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
   autocmd FileType vim nnoremap <buffer> <localleader>c I"<esc>
 
+  " Maps <localleader>p to preview markdown file on chrome.
+  " Assumes that your browser has an extension to view markdown file as HTML such
+  " as this one:
+  " https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd
+  autocmd FileType markdown nnoremap <buffer> <localleader>p :!google-chrome-stable %:p<cr>
+
+  " Enable auto formatting paragraph in markdowns.
+  " TODO: Add 'c' to formatoptions to enable auto formatting of comments
+  " in source codes.
+  autocmd FileType markdown setlocal formatoptions=aw2tq
+
   " Abbreviations.
   " TODO: These don't work as I intended.
   "autocmd Filetype javascript iabbrev <buffer> iff if ()<left>
