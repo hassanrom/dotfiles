@@ -52,10 +52,11 @@ $ hg clone https://code.google.com/p/vim/
 $ cd
 $ hg clone https://code.google.com/p/vim/
 $ cd vim
-$ /configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7-config --enable-perlinterp --enable-cscope --prefix=/usr/local --enable-luainterp
-$ make VIMRUNTIMEDIR=/usr/share/vim/vim74
+$ ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7-config --enable-perlinterp --enable-cscope --prefix=/usr/local --enable-luainterp
+$ VIMRUNTIMEDIR=/usr/share/vim/vim74 make
 $ sudo apt-get install checkinstall
 $ sudo checkinstall
+$ checkinstall
 ```
 
 For some reason setting VIMRUNTIMEDIR to /usr/share/vim/vim74 while making
