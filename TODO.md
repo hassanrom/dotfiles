@@ -19,6 +19,8 @@
 
 ## misc
 
+* Sakura's solarize theme doesn't work on my desktop but works fine on laptop.
+  Investigate.
 * Import and create git submodules for ycm & syntastic plugins.
 * Write a wraper around git to disable commands like `git status` & `git diff`
   in favor of their aliases.

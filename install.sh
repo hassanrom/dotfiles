@@ -1,4 +1,4 @@
-/bin/bash
+#!/bin/bash
 
 # Change default shell to zsh.
 if [[ ! $SHELL =~ "zsh" ]]; then
