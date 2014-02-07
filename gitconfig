@@ -14,3 +14,5 @@
   default = simple
 [include]
   path = ~/.gitconfig_user
+[color]
+	ui = auto
