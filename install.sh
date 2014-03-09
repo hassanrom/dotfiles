@@ -57,6 +57,8 @@ if [[ $(uname) == *Linux* ]]; then
   # i3
   if [[ ! -z $(command -v i3) ]]; then
     backup_if_exist ~/.i3 && ln -s dotfiles/i3 ~/.i3
+    backup_if_exist ~/.i3status.conf && \
+      ln -s dotfiles/i3status.conf ~/.i3status.conf
 
     # Link i3 scripts needed referenced in i3's config.
     mkdir -p ~/bin

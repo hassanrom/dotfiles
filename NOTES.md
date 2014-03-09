@@ -24,12 +24,31 @@ To compile your own i3 on ubuntu precise
 
 1. Download latest i3 tarball from i3's website.
 ```
-wget http://i3wm.org/downloads/i3-4.6.tar.bz2
+$ wget http://i3wm.org/downloads/i3-4.6.tar.bz2
 ```
 
 2. Install dependencies.
 ```
-sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-xinerama0-dev libpango1.0-dev libxcursor-dev
+$ sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-xinerama0-dev libpango1.0-dev libxcursor-dev
+```
+
+3. Compile & install.
+```
+$ make
+$ sudo make install
+```
+
+To compile your own i3status on ubuntu precise
+----------------------------------------------
+
+1. Download latest i3status.
+```
+$ wget http://i3wm.org/i3status/i3status-2.8.tar.bz2
+```
+
+2. Install dependencies.
+```
+$ sudo apt-get install libasound2-dev libiw-dev libconfuse-dev
 ```
 
 3. Compile & install.
@@ -48,7 +67,6 @@ page but I removed gui support & enabled lua.
 ```
 $ sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial lua5.2 liblua5.2-0 liblua5.2-dev
 $ sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
-$ hg clone https://code.google.com/p/vim/
 $ cd
 $ hg clone https://code.google.com/p/vim/
 $ cd vim
