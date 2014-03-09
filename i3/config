@@ -59,7 +59,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -fn "Ubuntu Mono:size=10"
 
 # change focus
 bindsym $mod+j focus down
@@ -182,7 +182,7 @@ bindsym $mod+Shift+g exec i3mark
 bindsym $mod+g exec i3goto
 
 # ovpn
-bindsym $mod+o exec i3-sensible-terminal --name 'ovpn' -e 'ovpn'
+bindsym $mod+o exec i3-sensible-terminal --name 'ovpn' -e 'ovpn -g'
 for_window [instance="^ovpn"] move scratchpad
 bindsym $mod+Shift+O [instance="^ovpn"] scratchpad show
 

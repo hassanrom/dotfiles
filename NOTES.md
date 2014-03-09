@@ -100,3 +100,33 @@ $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local .
 $ make
 $ sudo make install
 ```
+
+To compile your own dmenu with pretty fonts support
+---------------------------------------------------
+
+1. Download and unpack dmenu 4.5.
+```
+$ wget http://dl.suckless.org/tools/dmenu-4.5.tar.gz
+$ tar zxvf dmenu-4.5.tar.gz
+$ cd dmenu-4.5
+```
+
+2. Download patch & apply.
+```
+$ wget http://tools.suckless.org/dmenu/patches/dmenu-4.5-xft.diff
+$ patch -p1 < dmenu-4.5-xft.diff
+```
+
+3. Edit `config.mk` to change `/usr/local/include/freetype2` to
+`/usr/include/freetype2` instead.
+
+4. Compile & install.
+```
+$ make
+$ make install
+```
+
+5. Use it.
+```
+$ dmenu_run -fn 'Ubuntu Mono:size=10'
+```
