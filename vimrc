@@ -93,6 +93,12 @@ nnoremap <leader>ew :vsplit ~/workdotfiles/vimrc<cr>
 " Shortcuts to list files in the current directory.
 nnoremap <leader>ls :Ex<cr>
 
+" Yank WORD to system clipboard in normal mode.
+nnoremap <leader>y "+yE
+
+" Yank selection to system clipboard in visual mode.
+vnoremap <leader>y "+y
+
 " Show line numbers by default.
 set number
 " Show matching brackets.
@@ -171,13 +177,13 @@ augroup formatting
   " Assumes that your browser has an extension to view markdown file as HTML such
   " as this one:
   " https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd
-  autocmd FileType markdown nnoremap <buffer> <localleader>p :!google-chrome-stable %:p<cr>
+  " autocmd FileType markdown nnoremap <buffer> <localleader>p :!google-chrome-stable %:p<cr>
 
   " Enable auto formatting paragraph in markdowns. See :help auto-format for
   " more info.
   " TODO: Add 'c' to formatoptions to enable auto formatting of comments
   " in source codes.
-  autocmd FileType markdown setlocal formatoptions=aw2tq
+  " autocmd FileType markdown setlocal formatoptions=aw2tq
 
   " Abbreviations.
   " TODO: These don't work as I intended.
@@ -205,3 +211,33 @@ endif
 if filereadable(glob("~/workdotfiles/vimrc"))
   source ~/workdotfiles/vimrc
 endif
+
+""""""""""""""""""""""""""
+" GnuPG Extensions
+" Copied from http://pig-monkey.com/2013/04/4/password-management-vim-gnupg/.
+" TODO: Only run the following if a gpg file.
+""""""""""""""""""""""""""
+
+" Tell the GnuPG plugin to armor new files.
+let g:GPGPreferArmor=1
+
+" Tell the GnuPG plugin to sign new files.
+let g:GPGPreferSign=1
+
+augroup GnuPGExtra
+  " Set extra file options.
+  autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) call SetGPGOptions()
+  " Automatically close unmodified files after inactivity.
+  " autocmd CursorHold *.\(gpg\|asc\|pgp\) quit
+augroup END
+
+function SetGPGOptions()
+  " Set updatetime to 1 minute.
+  set updatetime=60000
+  " Fold at markers.
+  set foldmethod=marker
+  " Automatically close all folds.
+  set foldclose=all
+  " Only open folds with insert commands.
+  set foldopen=insert
+endfunction
