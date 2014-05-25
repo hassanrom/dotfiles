@@ -216,11 +216,5 @@ exec --no-startup-id nm-applet
 # TODO: Figure out if I need everything this guy does.
 exec /usr/bin/gnome-settings-daemon
 
-workspace 7:www output LVDS1
+workspace 9:www output LVDS1
 exec --no-startup-id i3-msg "workspace 7:www; exec google-chrome-stable"
-
-workspace 8:email output LVDS1
-exec --no-startup-id i3-msg "workspace 8:email; exec i3-sensible-terminal -e 'mutt'; exec i3-sensible-terminal -e 'irssi'"
-
-workspace 9:monitor output LVDS1
-exec --no-startup-id i3-msg "workspace 9:monitor; exec i3-sensible-terminal -e 'htop'; exec i3-sensible-terminal -e 'netstat -t -u -c'"
