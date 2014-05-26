@@ -16,6 +16,27 @@ set $mod Mod1
 # font for window titles. ISO 10646 = Unicode
 font pango: Ubuntu Mono 10
 
+# solarized colors
+set $base03   #002b36
+set $base02   #073642
+set $base01   #586e75
+set $base00   #657b83
+set $base0    #839496
+set $base1    #93a1a1
+set $base2    #eee8d5
+set $base3    #fdf6e3
+set $yellow   #b58900
+set $orange   #cb4b16
+set $red      #dc322f
+set $magenta  #d33682
+set $violet   #6c71c4
+set $blue     #268bd2
+set $cyan     #2aa198
+set $green    #859900
+
+set $black    #000000
+set $white    #111111
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -23,21 +44,21 @@ bar {
 
   colors {
     background #0e0e0e
-    statusline #839496
+    statusline $base0
 
-    focused_workspace  #b58900 #111111
-    inactive_workspace #586e75 #111111
-    urgent_workspace   #839496 #dc322f
-    active_workspace   #839496 #111111
+    focused_workspace  $yellow #111111
+    inactive_workspace $base01 #111111
+    urgent_workspace   $base0 $red
+    active_workspace   $base0 #111111
   }
 }
 
 # Colors
 # class                 border  backgr. text
-client.focused          #cb4b16 #cb4b16 #fdf6e3
-client.focused_inactive #657b83 #657b83 #fdf6e3
-client.unfocused        #586e75 #586e75 #eee8d5
-client.urgent           #dc322f #dc322f #fdf6e3
+client.focused          $orange $orange $base3
+client.focused_inactive $base00 $base00 $base3
+client.unfocused        $base01 $base01 $base2
+client.urgent           $red    $red    $base3
 client.background       #000000
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -59,7 +80,9 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# For some reason, the following doesn't work.
+#bindsym $mod+d exec dmenu_run -fn "Ubuntu Mono:size=10" -nb $base03 -nf $base0 -sb $base02 -sf $orange
+bindsym $mod+d exec dmenu_run -fn "Ubuntu Mono:size=10" -nb "#002b36" -nf "#839496" -sb "#073642" -sf "#cb4b16"
 
 # change focus
 bindsym $mod+j focus down
@@ -182,7 +205,7 @@ bindsym $mod+Shift+g exec i3mark
 bindsym $mod+g exec i3goto
 
 # ovpn
-bindsym $mod+o exec i3-sensible-terminal --name 'ovpn' -e 'ovpn'
+bindsym $mod+o exec i3-sensible-terminal --name 'ovpn' -e 'ovpn -g'
 for_window [instance="^ovpn"] move scratchpad
 bindsym $mod+Shift+O [instance="^ovpn"] scratchpad show
 
@@ -193,11 +216,5 @@ exec --no-startup-id nm-applet
 # TODO: Figure out if I need everything this guy does.
 exec /usr/bin/gnome-settings-daemon
 
-workspace 7:www output LVDS1
+workspace 9:www output LVDS1
 exec --no-startup-id i3-msg "workspace 7:www; exec google-chrome-stable"
-
-workspace 8:email output LVDS1
-exec --no-startup-id i3-msg "workspace 8:email; exec i3-sensible-terminal -e 'mutt'; exec i3-sensible-terminal -e 'irssi'"
-
-workspace 9:monitor output LVDS1
-exec --no-startup-id i3-msg "workspace 9:monitor; exec i3-sensible-terminal -e 'htop'; exec i3-sensible-terminal -e 'netstat -t -u -c'"

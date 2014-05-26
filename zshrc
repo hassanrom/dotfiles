@@ -39,6 +39,11 @@ export PATH=/usr/local/bin:$PATH
 export VIMRUNTIME=/usr/share/vim/vim74
 
 ##############################################################
+# zsh completion
+##############################################################
+source ~/.zsh/completion.zsh
+
+##############################################################
 # tmux management
 ##############################################################
 source ~/.zsh/tmux.zsh
@@ -47,6 +52,12 @@ source ~/.zsh/tmux.zsh
 # Prompt
 ##############################################################
 source ~/.zsh/prompt.zsh
+
+##############################################################
+# For mounting an encrypted usb stick.
+##############################################################
+
+source ~/.zsh/usb_mount.zsh
 
 ##############################################################
 # History
@@ -83,13 +94,7 @@ alias wzshrc='$EDITOR ~/workdotfiles/zshrc && source ~/.zshrc'
 alias i3config='$EDITOR ~/.i3/config && i3-msg reload'
 alias tmux='tmux -2'
 alias grep='grep --color=always'
-
-##############################################################
-# Autocompletion
-##############################################################
-
-autoload -Uz compinit
-compinit
+alias nautilus='nautilus --no-desktop'
 
 ##############################################################
 # Work specific
