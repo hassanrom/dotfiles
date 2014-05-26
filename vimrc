@@ -1,12 +1,13 @@
 " Pretty syntax hi-lighting.
 syntax enable
-" force vim to use 256 colors.
 set background=dark
 
 " solarized settings.
+let g:solarized_termcolors = 16
+let g:solarized_bold = 0
 let g:solarized_termtrans = 1
-let g:solarized_contrast = "high"
-let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"let g:solarized_visibility = "high"
 colorscheme solarized
 
 " Turn on filetype plugin & indent
@@ -176,7 +177,7 @@ augroup formatting
   " Enable auto formatting paragraph in markdowns.
   " TODO: Add 'c' to formatoptions to enable auto formatting of comments
   " in source codes.
-  autocmd FileType markdown setlocal formatoptions=aw2tq
+  " autocmd FileType markdown setlocal formatoptions=aw2tq
 
   " Abbreviations.
   " TODO: These don't work as I intended.
@@ -184,7 +185,10 @@ augroup formatting
   "autocmd Filetype cpp iabbrev <buffer> iff if ()<left>
 
   " Sometimes the screen screws up after saving.
-  au BufWritePost * :redraw!
+  autocmd BufWritePost * :redraw!
+
+  " 2 space tabs in go.
+  autocmd FileType go set shiftwidth=2|set noexpandtab|set tabstop=2
 augroup END
 
 " Cursor changes depending on mode.
