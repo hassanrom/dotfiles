@@ -8,7 +8,7 @@
 # Distributions/packagers should enhance this script with a
 # distribution-specific mechanism to find the preferred terminal emulator. On
 # Debian, there is the x-terminal-emulator symlink for example.
-for terminal in $TERMINAL sakura gnome-terminal urxvt rxvt terminator Eterm aterm xterm roxterm xfce4-terminal; do
+for terminal in $TERMINAL gnome-terminal sakura; do
     if which $terminal > /dev/null 2>&1; then
         exec $terminal "$@"
     fi
