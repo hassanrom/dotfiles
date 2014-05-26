@@ -28,13 +28,15 @@ export EDITOR=vim
 export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 
 # So that vim in terminal mode is beautiful with solarized colorscheme.
-export TERM="screen-256color"
+# Setting TERM to screen-256color breaks highlighting of search terms in less.
+# export TERM="screen-256color"
+export TERM="xterm-256color"
 
 # Prefer locally installed binaries.
 export PATH=/usr/local/bin:$PATH
 
 # I compile my own vim74 and install it under /usr/local.
-export VIMRUNTIME=/usr/local/share/vim/vim74
+export VIMRUNTIME=/usr/share/vim/vim74
 
 ##############################################################
 # tmux management
@@ -75,7 +77,9 @@ elif [ "$OS" = "OSX" ]; then
 fi
 
 alias vimrc='$EDITOR ~/.vimrc'
+alias wvimrc='$EDITOR ~/workdotfiles/vimrc'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+alias wzshrc='$EDITOR ~/workdotfiles/zshrc && source ~/.zshrc'
 alias i3config='$EDITOR ~/.i3/config && i3-msg reload'
 alias tmux='tmux -2'
 alias grep='grep --color=always'
