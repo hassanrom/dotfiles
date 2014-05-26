@@ -65,12 +65,12 @@ I mostly followed the instructions on
 page but I removed gui support & enabled lua.
 
 ```
-$ sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial lua5.2 liblua5.2-0 liblua5.2-dev
+$ sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial lua5.2 liblua5.2-0 liblua5.2-dev libx11-dev libxtst-dev
 $ sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
 $ cd
 $ hg clone https://code.google.com/p/vim/
 $ cd vim
-$ ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7-config --enable-perlinterp --enable-cscope --prefix=/usr/local --enable-luainterp
+$ ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7-config --enable-perlinterp --enable-cscope --prefix=/usr/local --enable-luainterp --with-x
 $ make VIMRUNTIMEDIR=/usr/share/vim/vim74
 $ sudo apt-get install checkinstall
 $ sudo checkinstall
