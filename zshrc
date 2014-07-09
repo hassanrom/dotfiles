@@ -33,7 +33,7 @@ export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 export TERM="xterm-256color"
 
 # Prefer locally installed binaries.
-export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # I compile my own vim74 and install it under /usr/local.
 export VIMRUNTIME=/usr/share/vim/vim74

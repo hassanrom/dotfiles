@@ -8,6 +8,6 @@
 if [[ $PS1 != "" && ${STARTED_TMUX:-x} = x && ${SSH_TTY:-x} != x ]]; then
   export STARTED_TMUX=1
   sleep 1
-  ((tmux has-session && tmux attach-session) || \
-    (tmux new-session -s remote)) && exit 0
+
+  tmux_start.zsh
 fi

@@ -30,7 +30,9 @@ backup_if_exist ~/.dir_colors && \
 backup_if_exist ~/.inputrc && ln -s dotfiles/inputrc ~/.inputrc
 
 # Install tmux configuration.
-backup_if_exist ~/.tmux.conf && ln -s dotfiles/tmux.conf ~/.tmux.conf
+backup_if_exist ~/.tmux.conf && ln -s dotfiles/tmux/tmux.conf ~/.tmux.conf
+rm -f ~/bin/tmux_start.zsh && \
+  ln -s dotfiles/tmux/tmux_start.zsh ~/bin/tmux_start.zsh
 
 # Install git configuration.
 backup_if_exist ~/.gitconfig && ln -s dotfiles/gitconfig ~/.gitconfig
