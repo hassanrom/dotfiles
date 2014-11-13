@@ -1,1 +1,6 @@
 gconf/*
+
+config/*
+!config/sakura
+
+zsh/cache/*
