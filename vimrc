@@ -29,6 +29,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Show tabs, trailing whitespaces, wrap markers.
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list
+
 " No swap & backup files. I save plenty.
 set nobackup
 set noswapfile
